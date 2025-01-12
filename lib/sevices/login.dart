@@ -18,7 +18,7 @@ Future<String> loginUser(String phoneNumber, String password) async {
     );
 
     if (response.statusCode == 200) {
-      return 'Login successful'; // نجاح
+      return response.body; // نجاح
     } else {
       return 'Login failed: ${response.body}'; // فشل
     }

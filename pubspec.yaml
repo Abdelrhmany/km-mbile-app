@@ -40,25 +40,23 @@ dependencies:
   animated_hint_textfield: ^1.0.0
   curved_navigation_bar: ^1.0.6
   image_picker: ^1.1.2
+  flutter_launcher_icons: "^0.14.2"
+  shared_preferences: ^2.3.5
+  device_preview: ^1.2.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.14.2"
-
 
 flutter_launcher_icons:
   android: "launcher_icon"
-  android_icon_background: "#ffffff"
   ios: true
-  remove_alpha_ios: true
-  image_path: "assets/icon.png"
+  image_path: "images/icon1.png"
+  adaptive_icon_foreground: "images/icon1.png"
+  adaptive_icon_background: "#5F8F3C"
   min_sdk_android: 21
-  adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/icon.png"
-
-
-
+  remove_alpha_ios: true
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -83,7 +81,7 @@ flutter:
   assets:
     - assets/
     - assets/cta/
-
+    - images/icon1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -6,13 +6,16 @@ import 'package:google_fonts/google_fonts.dart';
 class RegisterScreen extends StatelessWidget {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernamecontroler = TextEditingController();
 
-  Future<String> registerUser(String phoneNumber, String password) async {
+  Future<String> registerUser(
+      String phoneNumber, String password, String username) async {
     final url = Uri.parse('https://kwtmarkets.net/back/register');
     final headers = {'Content-Type': 'application/json'};
     final body = jsonEncode({
       'phoneNumber': phoneNumber,
       'password': password,
+      'username': username,
     });
 
     try {
@@ -89,13 +92,34 @@ class RegisterScreen extends StatelessWidget {
                 contentPadding: const EdgeInsets.all(12),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: usernamecontroler,
+              decoration: InputDecoration(
+                hintText: ' اسم المستخدم',
+                hintStyle: GoogleFonts.cairo(
+                  color: Color.fromRGBO(135, 135, 135, 1),
+                ),
+                filled: true,
+                fillColor: const Color.fromRGBO(253, 253, 253, 1),
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.red, width: 2),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white, width: 2),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                contentPadding: const EdgeInsets.all(12),
+              ),
+            ),
             SizedBox(height: 50),
             ElevatedButton(
               onPressed: () async {
-                final result = await registerUser(
-                  phoneController.text,
-                  passwordController.text,
-                );
+                final result = await registerUser(phoneController.text,
+                    passwordController.text, usernamecontroler.text);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(result)),
                 );

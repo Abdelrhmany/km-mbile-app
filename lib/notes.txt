@@ -1,0 +1,8 @@
+  brand: { type: String,  },         // العلامة التجارية
+  modelYear: { type: String, },     // سنة التصنيع
+  km: { type: String,},            // عدد الكيلومترات
+  engineCC: { type: String, },      // حجم المحرك
+  fuelType: { type: String,},      // نوع الوقود
+  transmission: { type: String, },  // ناقل الحركة
+  drivetrain: { type: String, },    // نظام الدفع
+  doors: { type: String, },         // عدد الأبواب

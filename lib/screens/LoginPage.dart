@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xyz/main.dart';
 import 'package:xyz/sevices/login.dart';
 
@@ -91,10 +92,13 @@ class _LoginPageState extends State<LoginPage> {
                   _phoneController.text,
                   _passwordController.text,
                 );
+                final prefs = await SharedPreferences.getInstance();
 
-                if (result == 'Login successful') {
-                  print('تم تسجيل الدخول بنجاح');
-                  Navigator.push(
+                if (result.split('=')[0] == 'Login successful') {
+                  List userdata = result.split('=');
+                  prefs.setStringList(
+                      'userdata', [_phoneController.text, userdata[1]]);
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => HomeScreen()),
                   );

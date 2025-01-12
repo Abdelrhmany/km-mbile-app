@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:xyz/main.dart';
-
-import 'loininfo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'LoginPage.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -22,7 +22,7 @@ class Login extends StatelessWidget {
             height: 15,
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (_) => const LoginPage()));
             },
@@ -36,7 +36,7 @@ class Login extends StatelessWidget {
               ),
             ),
             child: Text(
-              "تسجيل الدوخول",
+              "تسجيل الدخول",
               style: GoogleFonts.cairo(),
             ),
           )

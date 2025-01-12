@@ -9,7 +9,7 @@ List globalData = [];
 Future<void> fetchDataFromAPI() async {
   try {
     final response = await http.get(
-      Uri.parse('https://kwtmarkets.net/back/items'),
+      Uri.parse('https://kwtmarkets.net/back/items?status=act'),
     );
     if (response.statusCode == 200) {
       globalData =
